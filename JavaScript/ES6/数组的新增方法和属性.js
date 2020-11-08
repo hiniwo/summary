@@ -42,3 +42,19 @@ new Array(3).fill(7)
 
 //Array.prototype.sort() 的排序稳定性
 
+
+//map 和filter 都是返回一个数组， 回调函数也接受三个参数，用处也相同。
+
+// reduce 来说，它接受两个参数，分别是回调函数和初始值
+//回调函数接受四个参数，分别为累计值、当前元素、当前索引、原数组，
+
+//map 和 reduce 的转化
+const arr = [1, 2, 3]
+const mapArray = arr.map(value => value * 2)
+const reduceArray = arr.reduce((acc, current) => {
+  acc.push(current * 2)
+  return acc
+}, [])
+console.log(mapArray, reduceArray) // [2, 4, 6]
+
+
