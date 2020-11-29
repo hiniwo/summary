@@ -36,12 +36,62 @@ class MyPromise {
 //   })
 //   p1.then(res => console.log(res))
   //一秒后输出result
-  const p1 = new Promise(function (resolve, reject) {
-    setTimeout(() => reject(new Error('fail')), 3000)
-  })
+//   const p1 = new Promise(function (resolve, reject) {
+//     setTimeout(() => reject(new Error('fail')), 3000)
+//   })
   
-  const p2 = new Promise(function (resolve, reject) {
-    setTimeout(() => resolve(p1), 1000)
-  })
+//   const p2 = new Promise(function (resolve, reject) {
+//     setTimeout(() => resolve(p1), 1000)
+//   })
   
-  p2.then(result => console.log(result)).catch(error => console.log(error))
+//   p2.then(result => console.log(result)).catch(error => console.log(error))
+
+//   console.log('script start')
+
+async function async1() {
+  await async2()
+  console.log('async1 end')
+}
+
+// new Promise((resolve, reject) => {
+//     console.log('async2 end')
+//     // Promise.resolve() 将代码插入微任务队列尾部
+//     // resolve 再次插入微任务队列尾部
+//     resolve(Promise.resolve())
+//   }).then(() => {
+//     console.log('async1 end')
+//   })
+async function async2() {
+  console.log('async2 end')
+}
+async1()
+
+setTimeout(function() {
+  console.log('setTimeout')
+}, 0)
+
+new Promise(resolve => {
+  console.log('Promise')
+  resolve()
+})
+  .then(function() {
+    console.log('promise1')
+  })
+  .then(function() {
+    console.log('promise2')
+  })
+
+console.log('script end')
+
+//script start  
+// script end 
+// async1 end 
+// async2 end 
+
+//console.log('Promise')
+
+// console.log('promise1')
+
+// console.log('promise2')
+
+// console.log('setTimeout')

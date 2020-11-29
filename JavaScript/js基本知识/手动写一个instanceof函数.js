@@ -1,5 +1,6 @@
 //背景内容：使用getPrototypeOf这个方法来实现
 
+
 function myInstanceOf (left , right){
     if(typeof left !== 'Object' || left === null) return false;
     let proto = objcet.getPrototypeOf(left);
