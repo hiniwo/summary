@@ -14,8 +14,9 @@ var lengthOfLongestSubstring = function(s) {
         res = Math.max(res , r - l + 1);
         map.set(s[r] , r)
     }
+    console.log(map)
     return res
 
 };
 
-console.log(lengthOfLongestSubstring('abcd'))
+console.log(lengthOfLongestSubstring('abddcabdd'))
